@@ -1,0 +1,189 @@
+body {
+    background-color: #1d1d1d;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.fade-in {
+    -webkit-animation: fade-in 2s;
+            animation: fade-in 2s;
+}
+
+@-webkit-keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.github-corner {
+    opacity: 0.3;
+    -webkit-transition: opacity 300ms ease-in-out;
+    transition: opacity 300ms ease-in-out;
+}
+
+.github-corner:hover {
+    opacity: 1;
+}
+
+.github-corner:hover .octo-arm {
+    -webkit-animation: octocat-wave 560ms ease-in-out;
+            animation: octocat-wave 560ms ease-in-out
+}
+
+@-webkit-keyframes octocat-wave {
+    0%, 100% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0)
+    }
+    20%, 60% {
+        -webkit-transform: rotate(-25deg);
+                transform: rotate(-25deg)
+    }
+    40%, 80% {
+        -webkit-transform: rotate(10deg);
+                transform: rotate(10deg)
+    }
+}
+
+@keyframes octocat-wave {
+    0%, 100% {
+        -webkit-transform: rotate(0);
+                transform: rotate(0)
+    }
+    20%, 60% {
+        -webkit-transform: rotate(-25deg);
+                transform: rotate(-25deg)
+    }
+    40%, 80% {
+        -webkit-transform: rotate(10deg);
+                transform: rotate(10deg)
+    }
+}
+
+@media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+        -webkit-animation: none;
+                animation: none
+    }
+
+    .github-corner .octo-arm {
+        -webkit-animation: octocat-wave 560ms ease-in-out;
+                animation: octocat-wave 560ms ease-in-out
+    }
+}
+
+blockquote.twitter-tweet {
+    position: static;
+    visibility: visible;
+    width: 458px;
+    min-width: 220px;
+    background-color: #FFFFFF;
+    display: inline-block;
+    padding: 74px 20px 12px 20px;
+    margin: 10px 0;
+    border: #ddd 1px solid;
+    border-top-color: #eee;
+    border-bottom-color: #bbb;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    font: bold 14px/18px Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+blockquote.twitter-tweet p {
+    color: rgb(28, 32, 34);
+    white-space: initial;
+    background: 0px 0px;
+    font: 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+    margin: 0 5px 10px 0;
+}
+
+blockquote.twitter-tweet a[href^="https://twitter.com"] {
+    font-weight: normal;
+    color: #666;
+    font-size: 12px;
+}
+
+.button {
+    background-color: transparent;
+    color: #8e8d8d;
+    border: 2px #8e8d8d solid;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    line-height: 30px;
+    padding: 0 20px;
+}
+
+.button:hover {
+    background-color: #ffffff;
+    color: #1d1d1d;
+    cursor: pointer;
+    border-color: #ffffff;
+}
+
+.button:focus {
+    outline: none;
+    z-index: 10;
+    position: relative;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.button:focus:hover {
+    color: #1d1d1d;
+}
+
+.button:active {
+    background-color: #ffffff;
+    color: #1d1d1d;
+    cursor: pointer;
+}
+
+.search-input {
+    border: #8e8d8d 2px solid;
+    background-color: #1d1d1d;
+    color: #ffffff;
+    line-height: 30px;
+    padding: 0 20px;
+    display: inline-block;
+    margin-right: -2px;
+}
+
+.search-input:focus {
+    border-color: #ffffff;
+    color: #ffffff;
+    z-index: 10;
+    outline: none;
+    position: relative;
+}
+
+.search-input::-webkit-input-placeholder {
+    color: #8e8d8d;
+}
+
+.search-input::-moz-placeholder {
+    color: #8e8d8d;
+}
+
+.search-input:-ms-input-placeholder {
+    color: #8e8d8d;
+}
+
+.search-input::placeholder {
+    color: #8e8d8d;
+}
