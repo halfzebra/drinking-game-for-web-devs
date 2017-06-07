@@ -1,7 +1,5 @@
-require('./main.css');
-var nounList = require('./noun-list.json');
-var Elm = require('./Main.elm');
+import './main.css';
+import nounList from './noun-list.json';
+import { Main } from './Main.elm';
 
-var root = document.getElementById('root');
-
-Elm.Main.embed(root, nounList);
+Main.embed(document.getElementById('root'), nounList);
