@@ -2,6 +2,7 @@ body {
     background-color: #1d1d1d;
     color: #FFFFFF;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .fade-in {
@@ -73,7 +74,7 @@ blockquote.twitter-tweet {
 blockquote.twitter-tweet p {
     color: rgb(28, 32, 34);
     white-space: initial;
-    background: 0px 0px;
+    background: 0 0;
     font: 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
     margin: 0 5px 10px 0;
 }
@@ -85,6 +86,7 @@ blockquote.twitter-tweet a[href^="https://twitter.com"] {
 }
 
 .button {
+    font-family: inherit;
     background-color: transparent;
     color: #8e8d8d;
     border: 2px #8e8d8d solid;
@@ -120,6 +122,7 @@ blockquote.twitter-tweet a[href^="https://twitter.com"] {
 }
 
 .search-input {
+    font-family: inherit;
     border: #8e8d8d 2px solid;
     background-color: #1d1d1d;
     color: #ffffff;
@@ -138,5 +141,17 @@ blockquote.twitter-tweet a[href^="https://twitter.com"] {
 }
 
 .search-input::placeholder {
+    font-family: inherit;
     color: #8e8d8d;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.center-text {
+    text-align: center;
 }
