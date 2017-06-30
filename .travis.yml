@@ -29,6 +29,6 @@ install:
 script:
   - elm-format --validate src/
   - cd src
-  - elm-app make --output=/dev/null --yes --warn --yes
+  - elm-app make src/Main.elm --output=/dev/null --yes --warn
   - cd ..
   - sysconfcpus -n 2 elm-app test
