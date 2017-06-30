@@ -1,5 +1,6 @@
 module Main exposing (..)
 
+import Data.GitHubSearchResult exposing (..)
 import Html
     exposing
         ( Html
@@ -32,8 +33,8 @@ import Html.Attributes
         , class
         , style
         )
-import Json.Decode exposing (Decoder)
 import Json.Encode
+import Json.Decode
 import Http exposing (Error)
 import Dict exposing (Dict)
 import Task
@@ -150,32 +151,6 @@ update msg model =
 
             _ ->
                 ( model, Cmd.none )
-
-
-type alias GitHubSearchResultItem =
-    { name : String
-    , url : String
-    }
-
-
-type alias GitHubSearchResult =
-    { totalCount : Int, items : List GitHubSearchResultItem }
-
-
-gitHubSearchResultItemDecoder : Decoder GitHubSearchResultItem
-gitHubSearchResultItemDecoder =
-    Json.Decode.map2
-        GitHubSearchResultItem
-        (Json.Decode.field "name" Json.Decode.string)
-        (Json.Decode.field "url" Json.Decode.string)
-
-
-gitHubSearchResultDecoder : Decoder GitHubSearchResult
-gitHubSearchResultDecoder =
-    Json.Decode.map2
-        GitHubSearchResult
-        (Json.Decode.field "total_count" Json.Decode.int)
-        (Json.Decode.field "items" <| Json.Decode.list gitHubSearchResultItemDecoder)
 
 
 view : Model -> Html Msg
@@ -331,6 +306,7 @@ loadingIcon =
         ]
 
 
+forkMeIcon : Html msg
 forkMeIcon =
     Svg.svg
         [ attribute "aria-hidden" "true"
