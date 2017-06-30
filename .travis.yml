@@ -24,7 +24,11 @@ before_install:
   - export PATH=./node_modules/.bin:$PATH
 
 install:
-  - npm i create-elm-app -g
+  - npm i elm-format create-elm-app -g
 
 script:
+  - elm-format --validate src/
+  - cd src
+  - elm-app make --output=/dev/null --yes --warn --yes
+  - cd ..
   - sysconfcpus -n 2 elm-app test
