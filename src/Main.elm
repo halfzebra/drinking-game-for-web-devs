@@ -9,6 +9,7 @@ import Html
         , text
         , div
         , input
+        , h1
         , h2
         , button
         , a
@@ -43,16 +44,6 @@ import Svg.Attributes
 import Dom
 
 
-main : Program (List String) Model Msg
-main =
-    programWithFlags
-        { view = view
-        , init = init
-        , update = update
-        , subscriptions = always Sub.none
-        }
-
-
 type State
     = Starting
     | Playing
@@ -63,7 +54,11 @@ type State
 
 
 type alias Model =
-    { query : String, state : State, nouns : List String, cache : Dict String GitHubSearchResult }
+    { query : String
+    , state : State
+    , nouns : List String
+    , cache : Dict String GitHubSearchResult
+    }
 
 
 init : List String -> ( Model, Cmd Msg )
@@ -188,6 +183,7 @@ view { query, state } =
                 div
                     [ class "fade-in" ]
                     [ h2 [] [ text "You have won the game!" ]
+                    , h1 [] [ text query ]
                     , button [ onClick StartGame, class "button" ] [ text "Try again" ]
                     ]
 
@@ -195,6 +191,7 @@ view { query, state } =
                 div
                     [ class "fade-in" ]
                     [ h2 [] [ text "You have lost the game" ]
+                    , h1 [] [ text query ]
                     , button [ onClick StartGame, class "button" ] [ text "Try again" ]
                     ]
 
@@ -254,14 +251,17 @@ viewForkMe url =
         [ forkMeIcon ]
 
 
+xmlns : Attribute msg
 xmlns =
     attribute "xmlns" "http://www.w3.org/2000/svg"
 
 
+xmlnsXlink : Attribute msg
 xmlnsXlink =
     attribute "xmlns:xlink" "http://www.w3.org/1999/xlink"
 
 
+xmlSpace : String -> Attribute msg
 xmlSpace =
     attribute "xml:space"
 
@@ -332,3 +332,13 @@ forkMeIcon =
             ]
             []
         ]
+
+
+main : Program (List String) Model Msg
+main =
+    programWithFlags
+        { view = view
+        , init = init
+        , update = update
+        , subscriptions = always Sub.none
+        }
