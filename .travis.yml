@@ -34,4 +34,4 @@ script:
   - sysconfcpus -n 2 elm-app test
 
 after_success:
-  - test $TRAVIS_BRANCH = "dev" && gh-pages --dist build/ --repo https://${GITHUB_TOKEN}@github.com/halfzebra/drinking-game-for-web-devs.git
+  - test $TRAVIS_BRANCH = "master" && gh-pages --dist build/ --repo https://${GITHUB_TOKEN}@github.com/halfzebra/drinking-game-for-web-devs.git
