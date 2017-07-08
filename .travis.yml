@@ -6,7 +6,8 @@ node_js:
 cache:
   directories:
     - $HOME/.cpus
-    - $TRAVIS_BUILD_DIR/node_modules
+    - $TRAVIS_BUILD_DIR/elm-stuff/build-artifacts
+    - $TRAVIS_BUILD_DIR/tests/elm-stuff/build-artifacts
 
 before_install:
   # Install sysconfcpus
@@ -21,10 +22,9 @@ before_install:
     fi
   # Prepare working directory
   - cd "$TRAVIS_BUILD_DIR"
-  - export PATH=./node_modules/.bin:$PATH
 
 install:
-  - npm i elm-format create-elm-app -g
+  - npm i elm-format create-elm-app gh-pages -g
 
 script:
   - elm-format --validate src/
@@ -32,3 +32,6 @@ script:
   - elm-app make src/Main.elm --output=/dev/null --yes --warn
   - cd ..
   - sysconfcpus -n 2 elm-app test
+
+after_success:
+  - test $TRAVIS_BRANCH = "dev" && gh-pages --dist build/ --repo https://${GITHUB_TOKEN}@github.com/halfzebra/drinking-game-for-web-devs.git
