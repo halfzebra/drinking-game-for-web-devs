@@ -3,6 +3,10 @@ language: node_js
 node_js:
   - '6'
 
+env:
+  global:
+    - GH_REF: github.com/halfzebra/drinking-game-for-web-devs.git
+
 cache:
   directories:
     - $HOME/.cpus
@@ -32,7 +36,7 @@ script:
   - elm-app make src/Main.elm --output=/dev/null --yes --warn
   - cd ..
   - sysconfcpus -n 2 elm-app test
-  - elm-app build
+  - sysconfcpus -n 2 elm-app build
 
 after_success:
-  - test $TRAVIS_BRANCH = "master" && gh-pages --dist build/ --repo https://${GITHUB_TOKEN}@github.com/halfzebra/drinking-game-for-web-devs.git
+  - test $TRAVIS_BRANCH = "master" && gh-pages --repo https://$GITHUB_TOKEN@$GH_REF --dist build/
