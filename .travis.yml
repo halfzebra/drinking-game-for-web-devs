@@ -32,6 +32,7 @@ script:
   - elm-app make src/Main.elm --output=/dev/null --yes --warn
   - cd ..
   - sysconfcpus -n 2 elm-app test
+  - elm-app build
 
 after_success:
   - test $TRAVIS_BRANCH = "master" && gh-pages --dist build/ --repo https://${GITHUB_TOKEN}@github.com/halfzebra/drinking-game-for-web-devs.git
